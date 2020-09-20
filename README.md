@@ -1,3 +1,3 @@
-my mild tweaks to the first [Beautiful Racket Tutorial](https://beautifulracket.com/stacker/intro.html).
+exercises from [Beautiful Racket](https://beautifulracket.com)
 
-an interpreter for a reverse polish notation calculator
+1. stackerby.rkt, from the first [Beautiful Racket Tutorial](https://beautifulracket.com/stacker/intro.html), an interpreter for a reverse polish notation calculator
