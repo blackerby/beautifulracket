@@ -51,12 +51,16 @@
   (cond
     ;; if arg is a number, we push it onto the stack
     [(number? arg) (push-stack! arg)]
-    ;; if arg is + or *
-    [(or (equal? + arg) (equal? * arg) (equal? - arg) (equal? / arg))
-     ;; we pop two items of the stack and apply arg to them
+    ;; if arg is +, *, -, or /
+    [(or (equal? + arg) (equal? * arg))
+     ;; we pop two items off the stack and apply arg to them
      ;; assigning the result to op-result
      (define op-result (arg (pop-stack!) (pop-stack!)))
      ;; we push op-result onto the stack
+     (push-stack! op-result)]
+    [(or (equal? - arg) (equal? / arg))
+     (define args (reverse (list (pop-stack!) (pop-stack!))))
+     (define op-result (arg (first args) (second args)))
      (push-stack! op-result)]))
 (provide handle)
 
